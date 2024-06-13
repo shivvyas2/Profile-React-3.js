@@ -19,6 +19,8 @@ import {
   citizex,
   ALSM,
   threejs,
+  founder,
+  youtuber,
 } from "../assets";
 
 export const navLinks = [
@@ -45,6 +47,14 @@ const services = [
   {
     title: "Web Developer",
     icon: web,
+  },
+  {
+    title: "Co-Founder",
+    icon: founder,
+  },
+  {
+    title: "Youtuber",
+    icon: youtuber,
   },
 
 ];

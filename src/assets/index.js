@@ -4,6 +4,9 @@ import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
+import youtuber from "./youtuber.png";
+import founder from "./founder.png";
+import profile from "./profile.png";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -55,4 +58,7 @@ export {
   ALSM,
   expo,
   firebase,
+  founder,
+  youtuber,
+  profile,
 };
