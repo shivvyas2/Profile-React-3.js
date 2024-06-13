@@ -1,7 +1,5 @@
 import {
   mobile,
-  backend,
-  creator,
   web,
   javascript,
   typescript,
@@ -15,10 +13,8 @@ import {
   git,
   figma,
   docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
+  pace,
+  ordex,
   carrent,
   jobit,
   tripguide,
@@ -112,8 +108,8 @@ const experiences = [
   {
     title: "Lab Coordinator Assistant ",
     company_name: "Pace University",
-    icon: starbucks,
-    iconBg: "#383E56",
+    icon: pace,
+    iconBg: "#ffb71b",
     date: "April 2024 - Now",
     points: [
       "Designed the architecture for the lab using Docker, Dockerspawner and Jupyterhub which provide students required computational power for the academic work.",
@@ -124,8 +120,8 @@ const experiences = [
   {
     title: "React Native Developer",
     company_name: "Ordex Technology",
-    icon: tesla,
-    iconBg: "#E6DEDD",
+    icon: ordex,
+    iconBg: "#ffffff",
     date: "Jan 2021 - Feb 2022",
     points: [
       "Optimized core app flows including login, sign-up, and authentication for Citizex mobile app, improving sign-up rate by 5% and boosting vehicle tracking app engagement by 20% via UX streamlining.",
