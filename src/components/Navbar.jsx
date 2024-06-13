@@ -32,17 +32,17 @@ const Navbar = () => {
               key={link.id}
               className={`${active === link.title ? "text-white" : "text-grey"} hover:text-white text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(link.title)}>
-              <a href={`#${link.id}`} >{link.title}</a>
+              <a href={`#${link.id}`} onClick={(e) => e.preventDefault()}>{link.title}</a>
             </li>
           ))}
           <li 
             className='text-grey hover:text-white text-[18px] font-medium cursor-pointer'
-            onClick={() => handleExternalLinkClick('https://www.linkedin.com/in/your-linkedin-profile')}>
+            onClick={() => handleExternalLinkClick('https://www.linkedin.com/in/shivvyas/')}>
             LinkedIn
           </li>
           <li 
             className='text-grey hover:text-white text-[18px] font-medium cursor-pointer'
-            onClick={() => handleExternalLinkClick('https://drive.google.com/file/d/your-google-drive-resume-link/view')}>
+            onClick={() => handleExternalLinkClick('https://drive.google.com/file/d/1ab4OT6BLuDoO_818DYl1C4ThGF_7tzPn/view?usp=share_link')}>
             Resume
           </li>
         </ul>
@@ -64,7 +64,7 @@ const Navbar = () => {
                     setToggle(!toggle);
                     setActive(link.title);
                   }}>
-                  <a href={`#${link.id}`} >{link.title}</a>
+                  <a href={`#${link.id}`} onClick={(e) => e.preventDefault()}>{link.title}</a>
                 </li>
               ))}
               <li 
@@ -79,7 +79,7 @@ const Navbar = () => {
                 className='text-grey font-poppins font-medium cursor-pointer text-[16px]'
                 onClick={() => {
                   setToggle(!toggle);
-                  handleExternalLinkClick("https://drive.google.com/file/d/1ab4OT6BLuDoO_818DYl1C4ThGF_7tzPn/view?usp=share_link");
+                  handleExternalLinkClick('https://drive.google.com/file/d/1ab4OT6BLuDoO_818DYl1C4ThGF_7tzPn/view?usp=share_link');
                 }}>
                 Resume
               </li>
@@ -92,3 +92,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

@@ -56,7 +56,7 @@ const About = () => {
         <div className='w-full md:w-1/3 flex justify-center items-center'>
           <motion.img
             src={profile}
-            alt='Your Name'
+            alt='Shiv Vyas'
             className=' w-80 h-80 object-cover'
             variants={fadeIn("left", "spring", 0.5, 0.75)}
           />
