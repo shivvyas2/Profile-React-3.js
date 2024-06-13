@@ -1,6 +1,4 @@
 import logo from "./logo.svg";
-import backend from "./backend.png";
-import creator from "./creator.png";
 import mobile from "./mobile.png";
 import web from "./web.png";
 import github from "./github.png";
@@ -20,18 +18,18 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import expo from "./tech/expo.png";
+import firebase from "./tech/firebase.png";
 
 import pace from "./company/pace.png";
 import ordex from "./company/ordex.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
+import turnitup from "./turnitup.png";
+import citizex from "./citizex.png";
+import ALSM from "./ALSM.png";
 
 export {
   logo,
-  backend,
-  creator,
   mobile,
   web,
   github,
@@ -52,7 +50,9 @@ export {
   threejs,
   pace,
   ordex,
-  carrent,
-  jobit,
-  tripguide,
+  turnitup,
+  citizex,
+  ALSM,
+  expo,
+  firebase,
 };

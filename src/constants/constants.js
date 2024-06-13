@@ -15,9 +15,9 @@ import {
   docker,
   pace,
   ordex,
-  carrent,
-  jobit,
-  tripguide,
+  turnitup,
+  citizex,
+  ALSM,
   threejs,
 } from "../assets";
 
@@ -136,67 +136,66 @@ const experiences = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "TurnIt-Up",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "Our application allows you to upload assignments and notes of any course that you have taken in the past and share it with the world. In this way, a person regardless of whether they can afford education or the big colleges can now gain access to all the resources from knowledgable professors.",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "expo",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "firebase",
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: turnitup,
+    source_code_link: "https://github.com/shivvyas2/turnitup",
   },
   {
-    name: "Job IT",
+    name: "Citizex",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Citizex is a Microblogging and social networking service, where verified users can post and respond to reviews. Users can also see the representatives of their respective areas (Local, State, or National Level).",
     tags: [
       {
-        name: "react",
+        name: "react-native",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "redux",
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "expo",
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
-    source_code_link: "https://github.com/",
+    image: citizex,
   },
   {
-    name: "Trip Guide",
+    name: "ALSM",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "An algorithm-less social media. A social media that enhances the productivity of a person.",
     tags: [
       {
-        name: "nextjs",
+        name: "react-native",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "firebase",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "expo",
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    image: ALSM,
+    source_code_link: "https://github.com/shivvyas2/conspersa",
   },
 ];
 
