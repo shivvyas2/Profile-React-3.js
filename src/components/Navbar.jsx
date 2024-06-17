@@ -9,6 +9,7 @@ const Navbar = () => {
   const [active, setActive] = useState('');
   const [toggle, setToggle] = useState(false);
   const location = useLocation();
+  // eslint-disable-next-line no-unused-vars
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
