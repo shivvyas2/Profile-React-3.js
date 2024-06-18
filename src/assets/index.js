@@ -26,7 +26,6 @@ import firebase from "./tech/firebase.png";
 
 import pace from "./company/pace.png";
 import ordex from "./company/ordex.png";
-import ads from "./company/ads.png";
 
 import turnitup from "./turnitup.png";
 import citizex from "./citizex.png";
@@ -54,7 +53,6 @@ export {
   threejs,
   pace,
   ordex,
-  ads,
   turnitup,
   citizex,
   ALSM,

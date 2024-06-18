@@ -21,8 +21,6 @@ import {
   threejs,
   founder,
   youtuber,
-  firebase,
-  ads,
 } from "../assets";
 
 export const navLinks = [
@@ -114,11 +112,6 @@ const technologies = [
     name: "docker",
     icon: docker,
   },
-  {
-    name:"firebase",
-    icon: firebase,
-  },
-
 ];
 
 const experiences = [
@@ -139,24 +132,11 @@ const experiences = [
     company_name: "Ordex Technology",
     icon: ordex,
     iconBg: "#ffffff",
-    date: "Feb 2023 - July 2023",
+    date: "Jan 2021 - Feb 2022",
     points: [
       "Optimized core app flows including login, sign-up, and authentication for Citizex mobile app, improving sign-up rate by 5% and boosting vehicle tracking app engagement by 20% via UX streamlining.",
       "Enhanced React Native app performance through optimization, cutting rendering times by 50% on complex screens.",
       "Supported 5 interns and shared app development insights and foster collaboration.",
-    ],
-  },
-  {
-    title: "Co-Founder",
-    company_name: "Autonomous Drone Delivery System",
-    icon: ads,
-    iconBg: "#000000",
-    date: "May 2022 - Dec 2023",
-    points: [
-      "Developed innovative virtual air highways for drone navigation, enhancing safety and efficiency by preventing collisions.",
-
-      "Engineered a precision delivery system, ensuring reliable and accurate item deliveries using advanced aerial navigation technology.",
-      "Implemented real-time collision avoidance algorithms, significantly improving operational safety and minimizing delivery risks.",
     ],
   },
   
