@@ -21,6 +21,7 @@ import {
   threejs,
   founder,
   youtuber,
+  ads,
 } from "../assets";
 
 export const navLinks = [
@@ -139,6 +140,20 @@ const experiences = [
       "Supported 5 interns and shared app development insights and foster collaboration.",
     ],
   },
+  {
+    title: "Co-Founder",
+    company_name: "Autonomous Drone Delivery System",
+    icon: ads,
+    iconBg: "#000000",
+    date: "May 2022 - Dec 2023",
+    points: [
+      "Developed innovative virtual air highways for drone navigation, enhancing safety and efficiency by preventing collisions.",
+
+      "Engineered a precision delivery system, ensuring reliable and accurate item deliveries using advanced aerial navigation technology.",
+      "Implemented real-time collision avoidance algorithms, significantly improving operational safety and minimizing delivery risks.",
+    ],
+  },
+  
   
 ];
 
