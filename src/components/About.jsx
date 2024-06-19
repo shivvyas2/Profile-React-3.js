@@ -8,8 +8,6 @@ import SectionWrapper from "../hoc/SectionWrapper";
 import { fadeIn, textVariant } from "../utils/motion";
 import { profile } from "../assets";
 
-
-
 const ServiceCard = ({ index, title, icon }) => (
   <Tilt options={{ max: 45, scale: 1, speed: 450 }} className='xs:w-[250px] w-full'>
     <motion.div
@@ -57,7 +55,7 @@ const About = () => {
           <motion.img
             src={profile}
             alt='Shiv Vyas'
-            className=' w-80 h-80 object-cover'
+            className='w-80 h-80 object-cover'
             variants={fadeIn("left", "spring", 0.5, 0.75)}
           />
         </div>
@@ -73,4 +71,3 @@ const About = () => {
 };
 
 export default SectionWrapper(About, "about");
-
