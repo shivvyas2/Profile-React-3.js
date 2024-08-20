@@ -22,6 +22,7 @@ import {
   founder,
   youtuber,
   ads,
+  futeur,
 } from "../assets";
 
 export const navLinks = [
@@ -116,6 +117,18 @@ const technologies = [
 ];
 
 const experiences = [
+  {
+    title: "iOS and Android Developer",
+    company_name: "theFuteur",
+    icon: futeur,
+    iconBg: "#111111",
+    date: "August 2024 - Now",
+    points: [
+      "Architected and engineered a cutting-edge mobile application for theFuteur, utilizing React Native to craft a fluid, high-performance experience across iOS and Android platforms, driving seamless accessibility for users.",
+      "Integrated sophisticated real-time analytics, leveraging data from Equifax and PayNet to curate dynamic, personalized business credit insights, transforming raw data into actionable intelligence for small businesses.",
+      "Pioneered the development of a secure and intuitive subscription ecosystem, optimizing user flows and employing advanced state management to enhance user engagement, leading to a significant uptick in premium subscriptions.",
+    ],
+  },
   {
     title: "Lab Coordinator Assistant ",
     company_name: "Pace University",
