@@ -119,7 +119,7 @@ const technologies = [
 const experiences = [
   {
     title: "iOS and Android Developer",
-    company_name: "theFuteur",
+    company_name: "TheFuteur",
     icon: futeur,
     iconBg: "#111111",
     date: "August 2024 - Now",
