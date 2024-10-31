@@ -20,7 +20,7 @@ module.exports = {
         xs: "450px",
       },
       backgroundImage: {
-        "hero-pattern": "url('/src/assets/herobg.png')",
+        "hero-pattern": "url('/src/assets/hero-bg.jpg')",
         'custom-gradient': 'linear-gradient(180deg, rgba(74, 144, 226, 1) 0%, rgba(74, 144, 226, 0.7) 50%, rgba(74, 144, 226, 0) 100%)',
         'glass-gradient': 'linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 100%)',
       },
