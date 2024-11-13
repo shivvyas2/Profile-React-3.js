@@ -1,144 +1,128 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-
-import { styles } from './../styles';
-import { navLinks } from '../constants/constants';
-import {  menu, close } from './../assets';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link as ScrollLink } from 'react-scroll';
+import Toggler from './Toggler';
 import logo from './../assets/logo.png';
 
-const Navbar = () => {
-  const [active, setActive] = useState('');
-  const [toggle, setToggle] = useState(false);
-  const location = useLocation();
-  // eslint-disable-next-line no-unused-vars
-  const [scrolled, setScrolled] = useState(false);
+const Navbar = ({ initialTextColor = "white", initialIconColor = "white", forceIconColor }) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isToggled, setIsToggled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const navbarRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      if (window.innerWidth >= 768) setIsToggled(false);
     };
 
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 150);
+    };
+
+    window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
-  useEffect(() => {
-    const currentPath = location.pathname;
-    const activeLink = navLinks.find(
-      (link) => `/${link.id}` === currentPath || `/${link.id}/` === currentPath
-    );
-    setActive(activeLink ? activeLink.title : '');
-  }, [location.pathname]);
 
-  const handleExternalLinkClick = (url) => {
-    window.open(url, '_blank');
-  };
+  const isDarkBackground = isMobile || isScrolled;
+  const textColor = isDarkBackground ? "white" : initialTextColor;
+  const iconColor = forceIconColor || (isDarkBackground ? "white" : initialIconColor);
+  const backgroundColor = isDarkBackground ? 'rgba(2, 2, 6, 0.95)' : 'transparent';
 
   return (
-    <nav className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-black/90`}>
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
-        <Link
-          to='/'
-          className='flex items-center gap-2'
-          onClick={() => {
-            setActive('');
-            window.scrollTo(0, 0);
-          }}
-        >
-          <img src={logo} alt='logo' className='w-20 h-20 object-contain' />
-          <p className='text-white text-[18px] font-bold cursor-pointer flex'>
-            Shiv &nbsp;
-            <span className='sm:block hidden'> | React Native</span>
-          </p>
-        </Link>
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
-            {navLinks.map((nav) => (
-              <li
-                key={nav.id}
-                className={`${
-                  active === nav.title ? "text-white" : "text-secondary"
-                } hover:text-white text-[18px] font-medium cursor-pointer`}
-                onClick={() => setActive(nav.title)}
-              >
-                <a href={`#${nav.id}`}>{nav.title}</a>
-              </li>
-            ))}
-          <li
-            className='text-grey hover:text-white text-[18px] font-medium cursor-pointer'
-            onClick={() => handleExternalLinkClick('https://www.linkedin.com/in/shivvyas/')}
-          >
-            LinkedIn
-          </li>
-          <li
-            className='text-grey hover:text-white text-[18px] font-medium cursor-pointer'
-            onClick={() =>
-              handleExternalLinkClick('https://drive.google.com/file/d/1ab4OT6BLuDoO_818DYl1C4ThGF_7tzPn/view?usp=share_link')
-            }
-          >
-            Resume
-          </li>
-        </ul>
+    <>
+      <header
+        ref={navbarRef}
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          width: '80%',
+          margin: '0 auto',
+          zIndex: 50,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: isScrolled ? '15px 25px' : '20px 40px',
+          backgroundColor: backgroundColor,
+          boxShadow: isDarkBackground ? '0 4px 6px rgba(0, 0, 0, 0.1)' : 'none',
+          borderRadius: '25px',
+          transition: 'all 0.3s ease-in-out',
+        }}
+      >
+        <ScrollLink to="home" smooth={true} duration={500} offset={-70} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+          <img src={logo} alt="Logo" width={45} height={45} />
+        </ScrollLink>
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
-          <img
-            src={toggle ? close : menu}
-            alt='menu'
-            className='w-[28px] h-[28px] object-contain cursor-pointer'
-            onClick={() => setToggle(!toggle)}
+        {/* Desktop Navigation */}
+        {!isMobile && (
+          <nav style={{ display: 'flex', gap: '20px', position: 'relative' }}>
+            
+            <ScrollLink to="about" smooth={true} duration={500} offset={-70} style={getLinkStyle(isScrolled, textColor)}>About Me</ScrollLink>
+          
+           
+            <ScrollLink to="contact" smooth={true} duration={500} offset={-70} style={getLinkStyle(isScrolled, textColor)}>Contact</ScrollLink>
+            <a href="https://www.linkedin.com/in/shivvyas" target="_blank" rel="noopener noreferrer" style={getLinkStyle(false, textColor)}>LinkedIn</a>
+            <a href="/resume.pdf" download="Shiv_Vyas_Resume.pdf" style={getLinkStyle(false, textColor)}>Resume</a>
+          </nav>
+        )}
+
+        {/* Toggler for Mobile Overlay */}
+        {isMobile && (
+          <Toggler
+            onChange={() => setIsToggled(!isToggled)}
+            style={{ color: iconColor }}
           />
-          <div
-            className={`${
-              !toggle ? 'hidden' : 'flex'
-            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
-          >
-            <ul className='list-none flex justify-end items-start flex-col gap-4'>
-              {navLinks.map((link) => (
-                <li
-                  key={link.id}
-                  className={`${
-                    active === link.title ? 'text-white' : 'text-grey'
-                  } font-poppins font-medium cursor-pointer text-[16px]`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(link.title);
-                  }}
-                >
-                  <a href={`#${link.id}`} onClick={(e) => e.preventDefault()}>
-                    {link.title}
-                  </a>
-                </li>
-              ))}
-              <li
-                className='text-grey font-poppins font-medium cursor-pointer text-[16px]'
-                onClick={() => {
-                  setToggle(!toggle);
-                  handleExternalLinkClick('https://www.linkedin.com/in/shivvyas/');
-                }}
-              >
-                LinkedIn
-              </li>
-              <li
-                className='text-grey font-poppins font-medium cursor-pointer text-[16px]'
-                onClick={() => {
-                  setToggle(!toggle);
-                  handleExternalLinkClick(
-                    'https://drive.google.com/file/d/1ab4OT6BLuDoO_818DYl1C4ThGF_7tzPn/view?usp=share_link'
-                  );
-                }}
-              >
-                Resume
-              </li>
-            </ul>
-          </div>
+        )}
+      </header>
+
+      {/* Mobile Centered Overlay */}
+      {isMobile && isToggled && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          backgroundColor: '#020206',
+          zIndex: 40,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '20px',
+          overflow: 'hidden',
+        }}>
+          <ScrollLink to="about" smooth={true} duration={500} offset={-70} style={getOverlayLinkStyle()} onClick={() => setIsToggled(false)}>About Me</ScrollLink>
+          <ScrollLink to="contact" smooth={true} duration={500} offset={-70} style={getOverlayLinkStyle()} onClick={() => setIsToggled(false)}>Contact</ScrollLink>
+          <a href="https://www.linkedin.com/in/shivvyas" target="_blank" rel="noopener noreferrer" style={getOverlayLinkStyle()} onClick={() => setIsToggled(false)}>LinkedIn</a>
+          <a href="/resume.pdf" download="Shiv_Vyas_Resume.pdf" style={getOverlayLinkStyle()} onClick={() => setIsToggled(false)}>Resume</a>
         </div>
-      </div>
-    </nav>
+      )}
+    </>
   );
 };
+
+const getLinkStyle = (isActive, color) => ({
+  color: isActive ? '#ffffff' : color,
+  fontWeight: '500',
+  textDecoration: 'none',
+  cursor: 'pointer',
+  transition: 'color 0.3s ease',
+});
+
+const getOverlayLinkStyle = () => ({
+  color: '#cccccc',
+  fontSize: '1.5rem',
+  fontWeight: '500',
+  textDecoration: 'none',
+  cursor: 'pointer',
+  transition: 'color 0.3s ease',
+});
 
 export default Navbar;
